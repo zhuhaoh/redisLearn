@@ -30,7 +30,20 @@ public class JedisDemo {
      * 测试字符串类型的方法
      */
     public static void testString(){
+//Jedis jedis = getJedis();
 
+        Jedis jedis = getJedisFromPool();
+
+        jedis.set("user:name", "尚硅谷");
+
+        String result = jedis.ping();
+        System.out.println(result);
+
+
+        String name = jedis.get("user:name");
+        System.out.println(name);
+
+        jedis.close();
     }
     public static void testList(){
 
